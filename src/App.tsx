@@ -1,25 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import './App.scss';
+import { apiCall } from './apiCall';
+import { getCollections } from './getCollections';
+
+// Components
+import Homepage from './components/Homepage';
 
 function App() {
+  const [searchQuery, setSearchQuery] = useState("an empty string WOw");
+  const [collection, setCollection] = useState("Collections");
+
+  const updateSearchQuery = (query: string) => {
+    setSearchQuery(query);
+  }
+
+  const updateCollection = (collection: string) => {
+    setCollection(collection);
+  }
+
+  apiCall('dog');
+  getCollections();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <Homepage searchQuery={searchQuery} updateSearchQuery={updateSearchQuery} collection={collection} updateCollection={updateCollection} />
+    </React.Fragment>
   );
 }
 
