@@ -1,35 +1,58 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { apiCall } from '../apiCall';
+import { NavLink, withRouter } from 'react-router-dom';
+import { useStore } from "../store";
+
 
 function Search(props: any) {
-    console.log(props);
-
-    const changeState = () => {
-        console.log("state was changed");
-    }
+    const {state, dispatch}: any = useStore();
 
     const listenForChange = (event: any) => {
         const value = event.target.value;
         if (event.target.localName === "input") {
-            console.log("you typed");
-            props.updateSearchQuery(value);
+            dispatch({type: "updateSearchQuery", searchQuery: event.target.value});
         }
         if (event.target.localName === "select") {
-            console.log("you selected");
-            props.updateCollection(value);
+            dispatch({type: "updatedSelectedCollection", selectedCollection: event.target.value});
         }
     }
 
+    const searchDatabase = () => {
+        const dataFromApi = apiCall(state.searchQuery, state.selectedCollection);
+        dataFromApi.then( (result) => {
+            dispatch({type: "updatedImagesData", imagesData: result});
+        })
+    }
+
+    const delayRedirect = (event: any) => {
+        const { history: { push } } = props;
+        searchDatabase();
+        event.preventDefault();
+        setTimeout( () => {
+            push("/gallery");
+        }, 1000)
+    }  
+
     return (
+
+        
         <React.Fragment>
-                <input type='text' name='query' id='query' placeholder='Query' onChange={listenForChange} />
-                <div className="selectContainer">
-                    <select className='collections' id='collections' onChange={listenForChange}>
-                        <option value='Collections'>Collections</option>
-                    </select>
-                </div>
-                <button type='submit'>Search</button>
+                <form>
+                    <input type='text' name='query' id='query' placeholder='Query' onChange={listenForChange} />
+                    <div className="selectContainer">
+                        <select className='collections' id='collections' onChange={listenForChange}>
+                            <option value='Collections'>Collections</option>
+                            <option value='featured'>Featured</option>
+                            <option value='wallpaper'>Wallpapers</option>
+                            <option value='nature'>Nature</option>
+                            <option value='texture patterns'>Texture + Patterns</option>
+                            <option value='architecture'>Architecture</option>
+                        </select>
+                    </div>
+                    <NavLink to={{pathname: `/gallery`, hash: `#hash`,}} onClick={delayRedirect}><button type='submit'>Search</button></NavLink>
+                </form>
         </React.Fragment>
     );
 }
 
-export default Search;
+export default withRouter(Search);

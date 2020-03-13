@@ -27,7 +27,12 @@
         input {
             margin-bottom: 35px;
         }
+        a {
+            display: inline-block;
+            width: auto;
+        }
         button {
+            display: block;
             margin: 75px auto 0 auto;
         }
     }

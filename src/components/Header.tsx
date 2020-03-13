@@ -1,9 +1,20 @@
 import React from 'react';
+import logo from '../assets/logo.svg';
 
-function Header() {
+// Components
+import Search from './Search';
+
+function Header(props: any) {
     return (
         <React.Fragment>
-            <h1>hello</h1>
+            <header>
+                <div className="logoContainer">
+                    <img src={logo} alt="ImageSearch logo" />
+                </div>
+                <section className="headerSearch">
+                    <Search {...props} />
+                </section>
+            </header>
         </React.Fragment>
     );
 }

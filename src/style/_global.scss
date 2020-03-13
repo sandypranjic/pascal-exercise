@@ -15,6 +15,7 @@ body {
 
 .wrapper {
     width: 65%;
+    margin: 0 auto;
 }
 
 a {
@@ -82,4 +83,32 @@ form {
         border-radius: 25px;
         border: 0;
     }
+}
+
+.page-enter {
+    opacity: 0;
+}
+
+.page-enter-done {
+    opacity: 1;
+    transition: opacity 1s;
+    transition-delay: 0.5s;
+}
+
+.page-exit {
+    opacity: 1;
+}
+
+.page-exit-active {
+    opacity: 0;
+    transition: opacity 800ms;
+}
+
+.page-appear {
+    opacity: 0.01;
+}
+
+.page-appear-active {
+    opacity: 1;
+    transition: opacity .5s ease-in;
 }

@@ -1,0 +1,13 @@
+main {
+    .displayImagesContainer {
+        margin-top: 50px;
+        column-count: 3;
+        column-gap: 20px;
+        img {
+            width: 100%;
+            min-width: 300px;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+    }
+}

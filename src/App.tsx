@@ -1,28 +1,44 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.scss';
-import { apiCall } from './apiCall';
 import { getCollections } from './getCollections';
+import { Route } from "react-router-dom";
+import { CSSTransition } from "react-transition-group";
+import { useStore } from "./store";
+import { apiCall } from './apiCall';
 
 // Components
 import Homepage from './components/Homepage';
+import Gallery from './components/Gallery';
 
 function App() {
-  const [searchQuery, setSearchQuery] = useState("an empty string WOw");
-  const [collection, setCollection] = useState("Collections");
+  const {state, dispatch}: any = useStore();
 
-  const updateSearchQuery = (query: string) => {
-    setSearchQuery(query);
-  }
+  const routes = [
+    {path: "/", name: "homepage", Component: Homepage},
+    {path: "/gallery", name: "gallery", Component: Gallery},
+  ];
 
-  const updateCollection = (collection: string) => {
-    setCollection(collection);
-  }
+  apiCall("toronto", "architecture");
 
-  apiCall('dog');
-  getCollections();
   return (
     <React.Fragment>
-      <Homepage searchQuery={searchQuery} updateSearchQuery={updateSearchQuery} collection={collection} updateCollection={updateCollection} />
+      {routes.map(({ path, name, Component }) => (
+            <Route key={name} exact path={path}>
+  
+              {({match} : { match: any}) => (
+                <CSSTransition
+                in={match != null}
+                timeout={1200}
+                classNames="page"
+                unmountOnExit>
+                  <div className="page">
+                    <Component />
+                  </div>
+                </CSSTransition>
+              )}
+            </Route>
+          ))}
+
     </React.Fragment>
   );
 }
