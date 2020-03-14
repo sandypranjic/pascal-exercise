@@ -15,8 +15,6 @@ function App() {
     {path: "/gallery", name: "gallery", Component: Gallery},
   ];
 
-  apiCall("toronto", "architecture");
-
   return (
     <React.Fragment>
       {routes.map(({ path, name, Component }) => (
