@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/pascal-exercise/static/css/main.e623a9b0.chunk.css",
+    "main.js": "/pascal-exercise/static/js/main.265781c2.chunk.js",
+    "main.js.map": "/pascal-exercise/static/js/main.265781c2.chunk.js.map",
+    "runtime-main.js": "/pascal-exercise/static/js/runtime-main.08f66023.js",
+    "runtime-main.js.map": "/pascal-exercise/static/js/runtime-main.08f66023.js.map",
+    "static/js/2.bdb7c2c5.chunk.js": "/pascal-exercise/static/js/2.bdb7c2c5.chunk.js",
+    "static/js/2.bdb7c2c5.chunk.js.map": "/pascal-exercise/static/js/2.bdb7c2c5.chunk.js.map",
+    "index.html": "/pascal-exercise/index.html",
+    "precache-manifest.c873f758db783b3396cd8ebd0edbe4e2.js": "/pascal-exercise/precache-manifest.c873f758db783b3396cd8ebd0edbe4e2.js",
+    "service-worker.js": "/pascal-exercise/service-worker.js",
+    "static/css/main.e623a9b0.chunk.css.map": "/pascal-exercise/static/css/main.e623a9b0.chunk.css.map",
+    "static/js/2.bdb7c2c5.chunk.js.LICENSE.txt": "/pascal-exercise/static/js/2.bdb7c2c5.chunk.js.LICENSE.txt",
+    "static/media/download.svg": "/pascal-exercise/static/media/download.a325445f.svg",
+    "static/media/logo.svg": "/pascal-exercise/static/media/logo.2bca4ba4.svg",
+    "static/media/map.png": "/pascal-exercise/static/media/map.7278bbb7.png",
+    "static/media/mapMarker.svg": "/pascal-exercise/static/media/mapMarker.2b7c48a7.svg",
+    "static/media/App.scss": "/pascal-exercise/static/media/selectArrow.65df5b49.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.08f66023.js",
+    "static/js/2.bdb7c2c5.chunk.js",
+    "static/css/main.e623a9b0.chunk.css",
+    "static/js/main.265781c2.chunk.js"
+  ]
+}
