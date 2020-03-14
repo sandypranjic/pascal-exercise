@@ -1,27 +1,17 @@
-import React, { useEffect } from 'react';
-
-import { useStore } from "../store";
+import React from 'react';
 
 // Components
 import HomepageLogo from './HomepageLogo';
 import Search from './Search';
 
-function Homepage(props: any) {
-    const {state, dispatch}: any = useStore();
-
-    // useEffect( () => {
-    //     if (props.listOfCollectionNames !== null) {
-    //         console.log(props.listOfCollectionNames);
-    //         generateSelectOptions(props.listOfCollectionNames);
-    //     }
-    // }, [props.listOfCollectionNames])
+function Homepage() {
 
     return (
         <React.Fragment>
             <section className='homepage'>
                 <HomepageLogo />
                 <section className="homepageSearch">
-                    <Search {...props} />
+                    <Search />
                 </section>
             </section>
         </React.Fragment>

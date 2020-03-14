@@ -1,13 +1,10 @@
-import React, { useEffect } from 'react';
-// import { generateSelectOptions } from '../generateSelectOptions';
-import { useStore } from "../store";
+import React from 'react';
 
 // Components
 import Header from './Header';
 import DisplayImages from './DisplayImages';
 
 function Gallery(props: any) {
-    const {state, dispatch}: any = useStore();
 
     return (
         <React.Fragment>
